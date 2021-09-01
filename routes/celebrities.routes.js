@@ -16,7 +16,7 @@ router.post("/create", (req, res, next) => {
       res.redirect("/celebrities");
     })
     .catch((err) => {
-      console.log(err);
+      next(err);
       res.redirect("/celebrities/new-celebrity");
     });
 });
@@ -27,7 +27,7 @@ router.get("/", (req, res, next) => {
       res.render("celebrities/celebrities", { allCelebrities });
     })
     .catch((err) => {
-      console.log(err);
+      next(err);
     });
 });
 
